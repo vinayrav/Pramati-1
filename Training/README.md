@@ -65,8 +65,8 @@ Action oriented and Ability to pick up from false step
 
 
 ## **PERSONAL PEOFILE**
-*Date of Birth \: 22/09/1996
-*PROFILE Gender \: Female
-*Nationality \: India
-*Languages Known \: English, Tamil
-*Place \: Vellore
+-Date of Birth \: 22/09/1996
+-PROFILE Gender \: Female
+-Nationality \: India
+-Languages Known \: English, Tamil
+-Place \: Vellore
