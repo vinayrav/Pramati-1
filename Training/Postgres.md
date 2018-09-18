@@ -13,6 +13,7 @@
 10.  List of employees whose name has a vowel.
 11.  List of employees whose's manager name has a vowel and employee salary is less than 20000.
 12.  List of employees who has joined in Jan/Feb and Nov
+13. List employee id,manager id,salary and joining date where null values should be displayed as NA.
 
 ## **Queries:**
 1. SELECT b.name AS "Mgr_Name",a.name AS "Emp_Name" FROM employee a, employee b WHERE b.emp_id = a.mgr_id;
@@ -37,3 +38,5 @@
 11. SELECT b.name AS "Emp_Name" FROM employee a, employee b WHERE a.emp_id = b.mgr_id and b.salary < 20000 and (b.name LIKE '%A%' OR b.name LIKE '%E%' OR b.name LIKE '%I%' OR b.name LIKE '%O%' OR b.name LIKE '%U%' OR b.name LIKE '%a%' OR b.name LIKE '%e%' OR b.name LIKE '%i%' OR b.name LIKE '%o%' OR b.name LIKE '%u%');
 
 12. select name from employee WHERE to_char(joining_date, 'mm') = '02'OR to_char(joining_date, 'mm') = '01'OR to_char(joining_date, 'mm') = '11';
+
+13. select emp_id,COALESCE(cast(mgr_id as varchar),'NA') as mgr_id,salary,joining_date from employee;
