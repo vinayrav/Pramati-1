@@ -41,7 +41,46 @@
 
 11. select d.name,count(distinct m.name) from employee e,employee m,dept d where e.mgr_id=m.emp_id and m.dept_id=d.dept_id group by d.name having count(distinct m.name)>=2;
 
-12. select a.name from employee a,employee b where b.emp_id=a.mgr_id and a.joining_date>'01-01-2013'and (select count(a.name) from employee a,employee b where b.emp_id = a.mgr_id )>2;
+12. select a.name employee from employee a,employee b where b.emp_id=a.mgr_id and a.joining_date>'01-01-2013'and (select count(a.name) from employee a,employee b where b.emp_id = a.mgr_id )>2;
+
+13. 
+SELECT generate_series(
+                  (SELECT MIN(dept_id) 
+                   FROM dept),
+                  (SELECT MAX(dept_id) 
+                   FROM dept)) 
+AS MissingID 
+EXCEPT SELECT dept_id 
+FROM dept ORDER BY MissingID ;
 
 
+14. Manager Name, Reportee who joined first (Reportee Name - doj), Reportee who draws less sal (Reportee Name - salary)
+SELECT a.name,a.doj AS "Reportee Name - doj",b.sal AS "Reportee Name - salary"
+FROM
+(SELECT b.name,CONCAT(a.name,'-',a.joining_date) AS doj 
+         FROM employee a,employee b
+         WHERE b.emp_id=a.mgr_id 
+         AND EXISTS(
+           SELECT 1
+           FROM employee a_inr
+           WHERE a_inr.mgr_id=b.emp_id
+           HAVING min(a_inr.joining_date)=a.joining_date
+          ) 
+) a
+INNER JOIN (
+SELECT b.name,CONCAT(a.name,'-',a.salary) AS sal	
+         FROM employee a,employee b
+         WHERE b.emp_id=a.mgr_id
+         AND EXISTS(
+             SELECT 1
+             FROM employee a_inr
+             WHERE a_inr.mgr_id=b.emp_id
+             HAVING min(a_inr.salary)=a.salary
+              
+           )
+)b
+ON a.name=b.name;
 
+
+15. 
+ 
