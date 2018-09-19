@@ -14,7 +14,7 @@
 12. Employee Names who joined after 2013 and his manager has more than two reportees
 
 ## **Queries:**
-
+...
 1.  SELECT b.name as  Mgr_Name,count(a.name) as Emp_count FROM employee a, employee b WHERE b.emp_id = a.mgr_id and a.joining_date>'01-01-2013' group by b.name order by b.name;
 
 2. SELECT b.name AS "Mgr_Name",min(a.salary) AS "Emp_salary" FROM employee a, employee b WHERE b.emp_id = a.mgr_id and  b.joining_date>'01-01-2013' group by b.name;
@@ -44,7 +44,7 @@
 12. select a.name employee from employee a,employee b where b.emp_id=a.mgr_id and a.joining_date>'01-01-2013'and (select count(a.name) from employee a,employee b where b.emp_id = a.mgr_id )>2;
 
 13. 
-SELECT generate_series(
+ SELECT generate_series(
                   (SELECT MIN(dept_id) 
                    FROM dept),
                   (SELECT MAX(dept_id) 
