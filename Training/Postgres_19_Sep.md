@@ -14,7 +14,7 @@
 12. Employee Names who joined after 2013 and his manager has more than two reportees
 
 ## **Queries:**
-...
+```
 1.  SELECT b.name as  Mgr_Name,count(a.name) as Emp_count FROM employee a, employee b WHERE b.emp_id = a.mgr_id and a.joining_date>'01-01-2013' group by b.name order by b.name;
 
 2. SELECT b.name AS "Mgr_Name",min(a.salary) AS "Emp_salary" FROM employee a, employee b WHERE b.emp_id = a.mgr_id and  b.joining_date>'01-01-2013' group by b.name;
@@ -82,5 +82,26 @@ SELECT b.name,CONCAT(a.name,'-',a.salary) AS sal
 ON a.name=b.name;
 
 
-15. 
- 
+15) Question 3:
+* Fiddle: sqlfiddle.com/#!4/ffc645
+* Same phase information is duplicated in consecutive days given table phase_data. Write a SQL to fetch the phase duration where same phase in consecutive days to be merged into a single row
+phase       start_date   end_date
+Phase_0        2010-03-17     2010-03-27
+Phase_1        2010-03-27     2010-05-11
+Phase_0        2010-05-11
+
+salary_history
+id,name,start_date,end_date,salary
+1,Aneesh,2010,2011,1000
+1,Aneesh,2011,2012,1100--1,Aneesh,2011,2014,1100
+1,Aneesh,2014,2015,1200
+1,Aneesh,2015,null,1200
+
+INSERT INTO salary_history 
+VALUES( 1,'Aneesh',
+
+16) Find the list of employee records where salary data is missing
+With the above example, we don’t have salary information from 2012 to 2014
+
+Assume, if above data is as commented, then there is no missing as there is no gap
+
