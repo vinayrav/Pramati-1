@@ -13,7 +13,7 @@
 11. List of Departments who has atleast two managers
 12. Employee Names who joined after 2013 and his manager has more than two reportees
 
-## ** Queries:**
+## **Queries:**
 
 1.  SELECT b.name as  Mgr_Name,count(a.name) as Emp_count FROM employee a, employee b WHERE b.emp_id = a.mgr_id and a.joining_date>'01-01-2013' group by b.name order by b.name;
 
