@@ -44,7 +44,7 @@
 12. select a.name employee from employee a,employee b where b.emp_id=a.mgr_id and a.joining_date>'01-01-2013'and (select count(a.name) from employee a,employee b where b.emp_id = a.mgr_id )>2;
 
 13. 
- SELECT generate_series(
+SELECT generate_series(
                   (SELECT MIN(dept_id) 
                    FROM dept),
                   (SELECT MAX(dept_id) 
@@ -55,30 +55,99 @@ FROM dept ORDER BY MissingID ;
 
 
 14. Manager Name, Reportee who joined first (Reportee Name - doj), Reportee who draws less sal (Reportee Name - salary)
+SELECT a.name,a.doj AS "Reportee Name - doj",b.sal AS "Reportee Name - salary"
+FROM
+(SELECT b.name,CONCAT(a.name,'-',a.joining_date) AS doj 
+         FROM employee a,employee b
+         WHERE b.emp_id=a.mgr_id 
+         AND EXISTS(
+           SELECT 1
+           FROM employee a_inr
+           WHERE a_inr.mgr_id=b.emp_id
+           HAVING min(a_inr.joining_date)=a.joining_date
+          ) 
+) a
+INNER JOIN (
+SELECT b.name,CONCAT(a.name,'-',a.salary) AS sal	
+         FROM employee a,employee b
+         WHERE b.emp_id=a.mgr_id
+         AND EXISTS(
+             SELECT 1
+             FROM employee a_inr
+             WHERE a_inr.mgr_id=b.emp_id
+             HAVING min(a_inr.salary)=a.salary
+              
+           )
+)b
+ON a.name=b.name;
 
 
 
 
-15) Question 3:
-* Fiddle: sqlfiddle.com/#!4/ffc645
-* Same phase information is duplicated in consecutive days given table phase_data. Write a SQL to fetch the phase duration where same phase in consecutive days to be merged into a single row
-phase       start_date   end_date
-Phase_0        2010-03-17     2010-03-27
-Phase_1        2010-03-27     2010-05-11
-Phase_0        2010-05-11
 
-salary_history
+SELECT m1.Manager_name,m1.jd,m2.sd
+FROM(
+    SELECT DISTINCT m2.name AS Manager_name,FIRST_VALUE(CONCAT(m1.name,'-',m1.joining_date)) OVER(PARTITION BY m1.mgr_id ORDER BY     m1.joining_date) 
+   AS jd
+   FROM employee m1, employee m2
+   WHERE m2.emp_id=m1.mgr_id)m1
+   INNER JOIN(
+              SELECT DISTINCT m2.name AS Manager_name,FIRST_VALUE(CONCAT(m1.name,'-',m1.salary)) OVER (PARTITION BY m1.mgr_id ORDER BY m1.salary) AS sd 
+              FROM employee m1, employee m2
+              WHERE m2.emp_id=m1.mgr_id)m2
+              ON m1.Manager_name=m2.Manager_name;
+
+         
+
+
+
+
+
+
+
+
+
+15. salary_history
 id,name,start_date,end_date,salary
 1,Aneesh,2010,2011,1000
 1,Aneesh,2011,2012,1100--1,Aneesh,2011,2014,1100
 1,Aneesh,2014,2015,1200
 1,Aneesh,2015,null,1200
 
-INSERT INTO salary_history 
-VALUES( 1,'Aneesh',
-
-16) Find the list of employee records where salary data is missing
+Find the list of employee records where salary data is missing
 With the above example, we don’t have salary information from 2012 to 2014
 
 Assume, if above data is as commented, then there is no missing as there is no gap
+
+SELECT CONCAT(a.i,'-',b.i) AS Missing_Data
+FROM
+(
+SELECT i 
+FROM generate_series(
+                   (SELECT MIN(start_date) 
+                   FROM sh),
+                   (SELECT MAX(start_date) 
+                   FROM sh)) AS t(i)
+WHERE NOT EXISTS(
+                 SELECT 1 
+                 FROM sh
+                 WHERE sh.start_date=t.i)
+) a
+
+INNER JOIN (
+SELECT i 
+FROM generate_series(
+                   (SELECT MIN(end_date) 
+                   FROM sh),
+                   (SELECT MAX(end_date) 
+                   FROM sh)) AS t(i)
+WHERE NOT EXISTS(
+                 SELECT 1 
+                 FROM sh
+                 WHERE sh.end_date=t.i)
+)b
+
+ON  b.i-a.i>1;
+
+
 
