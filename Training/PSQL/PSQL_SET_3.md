@@ -1,11 +1,11 @@
 
-
-
-
 ## **Postgres_SET_3:**
 
 
 1. SQL to find the missing ids from dep
+
+* With generate_series function
+
 ```
 SELECT generate_series(
                   (SELECT MIN(dept_id) 
@@ -18,8 +18,52 @@ FROM dept ORDER BY MissingID ;
 ```
 
 
+```
+Select
+	*
+FROM
+	generate_series (
+		(SELECT MIN(dept_id) FROM dept),
+		(SELECT MAX(dept_id) FROM dept)
+	) AS sn
+LEFT JOIN dept ON dept.dept_id = sn
+where dept_id is null
+```
 
 
+
+
+* Without generate series function
+
+```
+
+DO $$
+BEGIN
+   FOR i IN (SELECT MIN(dept_id) FROM dept)..(SELECT MAX(dept_id) FROM dept) LOOP
+ insert into miss values (i);
+   END LOOP;
+END; $$ LANGUAGE plpgsql;
+
+
+```
+```
+
+WITH RECURSIVE series AS (
+	SELECT
+		1 AS rn
+	UNION ALL
+		SELECT
+			rn + 1 AS rn
+		FROM
+			series
+		WHERE
+			rn < 10
+) SELECT
+	*
+FROM
+	series
+
+```
 
 2. Manager Name, Reportee who joined first (Reportee Name - doj), Reportee who draws less sal (Reportee Name - salary)
 
@@ -54,17 +98,31 @@ ON a.name=b.name;
 ```
 * With Window Fucntion
 ```
-SELECT m1.Manager_name,m1.jd,m2.sd
-FROM(
-    SELECT DISTINCT m2.name AS Manager_name,FIRST_VALUE(CONCAT(m1.name,'-',m1.joining_date)) OVER(PARTITION BY m1.mgr_id ORDER BY     m1.joining_date) 
-   AS jd
-   FROM employee m1, employee m2
-   WHERE m2.emp_id=m1.mgr_id)m1
-   INNER JOIN(
-              SELECT DISTINCT m2.name AS Manager_name,FIRST_VALUE(CONCAT(m1.name,'-',m1.salary)) OVER (PARTITION BY m1.mgr_id ORDER BY m1.salary) AS sd 
-              FROM employee m1, employee m2
-              WHERE m2.emp_id=m1.mgr_id)m2
-              ON m1.Manager_name=m2.Manager_name;
+SSELECT DISTINCT
+	M . NAME AS mgr_name,
+	FIRST_VALUE (e. NAME) OVER (
+		PARTITION BY M .emp_id
+		ORDER BY
+			e.joining_date
+	) AS first_emp_name,
+	FIRST_VALUE (e.joining_date) OVER (
+		PARTITION BY M .emp_id
+		ORDER BY
+			e.joining_date
+	) AS first_doj,
+	FIRST_VALUE (e. NAME) OVER (
+		PARTITION BY M .emp_id
+		ORDER BY
+			e.salary
+	) AS least_sal_emp_name,
+	FIRST_VALUE (e.salary) OVER (
+		PARTITION BY M .emp_id
+		ORDER BY
+			e.salary
+	) AS least_salary
+FROM
+	employee e
+INNER JOIN employee M ON e.mgr_id = M .emp_id
 
 ```      
 
@@ -84,36 +142,17 @@ Assume, if above data is as commented, then there is no missing as there is no g
 * Without Window Function.
 
 ```
-SELECT CONCAT(a.i,'-',b.i) AS Missing_Data
+select * from (
+SELECT
+	sh.start_date,
+	sh.end_date,
+	LEAD (start_date, 1) OVER (ORDER BY start_date) AS next_start_date
 FROM
-(
-SELECT i 
-FROM generate_series(
-                   (SELECT MIN(start_date) 
-                   FROM sh),
-                   (SELECT MAX(start_date) 
-                   FROM sh)) AS t(i)
-WHERE NOT EXISTS(
-                 SELECT 1 
-                 FROM sh
-                 WHERE sh.start_date=t.i)
-) a
-
-INNER JOIN (
-SELECT i 
-FROM generate_series(
-                   (SELECT MIN(end_date) 
-                   FROM sh),
-                   (SELECT MAX(end_date) 
-                   FROM sh)) AS t(i)
-WHERE NOT EXISTS(
-                 SELECT 1 
-                 FROM sh
-                 WHERE sh.end_date=t.i)
-)b
-
-ON  b.i-a.i>1;
+	sh
+ORDER BY
+	start_date)t where next_start_date-end_date > 0
 
 ```
+
 
 
