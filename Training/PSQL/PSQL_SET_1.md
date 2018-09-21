@@ -38,7 +38,8 @@ SELECT distinct b.name AS manager_names
 FROM employee a,employee b 
 WHERE a.mgr_id=b.emp_id 
 AND b.termination_date<now()::date;
-``
+```
+
 6.  List of department names where we have a terminated employee.
 ```
 SELECT distinct a.name AS employee_names ,ad.name Dept_name 
