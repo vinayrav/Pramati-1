@@ -139,7 +139,7 @@ With the above example, we don’t have salary information FROM 2012 to 2014
 
 Assume, if above data is as commented, then there is no missing as there is no gap
 
-* Without Window Function.
+* With Window Function.
 
 ```
 select * from (
