@@ -4,6 +4,10 @@
   <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+body{
+width:1000px;
+margin:0 auto;
+}
 .one{
 height:100px;
 border-bottom:1.7px dashed lightgray;
@@ -24,7 +28,7 @@ top:10px;
 
 .two{
 height:380px;
-position:relative;
+
 top:10px;
 border-bottom:1.7px dashed lightgray;
 }
@@ -41,7 +45,7 @@ color:green;
 }
 
 .four{
-position:relative;
+
 display:table;
 top:20px;
 height:200px;
@@ -51,7 +55,7 @@ padding-bottom:2px;
 
 .lefttext {
     float:left;
-    width: 400px;
+    width: 250px;
     top:-115px;
     
     padding:6px;
@@ -61,15 +65,16 @@ padding-bottom:2px;
 
 .middletext {
     display: inline-block;
-    width: 400px;
+    width: 250px;
     top:-115px;
     padding:6px;
     border-right:1.7px dashed lightgray;
 }
 .righttext {
+  
     float:right;
     width: 400px;
-    top:-115px;
+    top:-100px;
     left:10px;
     margin-left:9px;
     border:7px solid #99994d;
@@ -78,7 +83,7 @@ padding-bottom:2px;
 
 
 .five{
-position:relative;
+
 height:50px;
 top:10px;
 
@@ -101,6 +106,10 @@ a:hover {
     text-decoration: none;
 }
 
+.over{
+overflow:auto;
+}
+
 </style>
 </head>
 <body>
@@ -118,8 +127,8 @@ a:hover {
 
 <div class="two">
 <img src="banner_image.jpg" width=100%">
-</div>
 
+</div>
 <div class="three">
 <p class="p1">Why HTML and CSS?</p>
 <p><font size="2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage.<font></p>
@@ -157,6 +166,5 @@ a:hover {
 </div>
 
 
-</body>
-</html>
+</body></html>
 ```
