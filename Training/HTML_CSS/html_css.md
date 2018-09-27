@@ -1,9 +1,6 @@
+# **CSS:**
+
 ```
-<!DOCTYPE html>
-<html>
-  <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
 body{
 width:1000px;
 margin:0 auto;
@@ -22,13 +19,14 @@ float:right;
 }
 
 .icontext{
-top:10px;
+top:0px;
 }
 
 
 .two{
 height:290px;
-
+padding-top:6px;
+padding-bottom:6px;
 top:10px;
 border-bottom:1.7px dashed lightgray;
 }
@@ -36,7 +34,9 @@ border-bottom:1.7px dashed lightgray;
 .three{
 top:10px;
 height:110px;
+padding-top:3px;
 border-bottom:1.7px dashed lightgray;
+padding-bottom:6px;
 }
 .p1{
 font-size:23px;
@@ -57,9 +57,12 @@ padding-bottom:2px;
     float:left;
     width: 250px;
     top:-115px;
-    
-    padding:6px;
+    margin-left:17px; 
+   
+    padding-left:6px;
+    padding-right:10px;
     border-right:1.7px dashed lightgray;
+    text-align:justify;
 }
 
 
@@ -67,16 +70,20 @@ padding-bottom:2px;
     display: inline-block;
     width: 250px;
     top:-115px;
-    padding:6px;
-    border-right:1.7px dashed lightgray;
+    margin-left:17px;
+    padding-left:3px; 
+    padding-right:1px;
+    text-align:justify;
+    
 }
 .righttext {
   
     float:right;
     width: 400px;
-    top:-100px;
-    left:10px;
-    margin-left:9px;
+    text-align:justify;
+    padding-left:10px;
+    margin-top:12px;
+    margin-left:17px;
     border:7px solid #99994d;
     background-color:#e5e5cc;
 }
@@ -110,7 +117,16 @@ a:hover {
 overflow:auto;
 }
 
-</style>
+```
+
+# **HTML:**
+
+```
+<!DOCTYPE html>
+<html>
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <div class="one">
@@ -119,10 +135,9 @@ overflow:auto;
 </div>
 
 <div class="oneright">
-<img src="icon_sprite.png">
-<div class="icontext">
-<p><a href="home.html" target="_blank">home</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp<a href="about.html" target="_blank"> about</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp<a href="ideas.html" target="_blank"> idea</a> </p>
-</div></div>
+<img src="icon_sprite.png" ><br>
+<a href="home.html" target="_blank">home</a> &nbsp&nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp<a href="about.html" target="_blank"> about</a> &nbsp&nbsp&nbsp|&nbsp&nbsp&nbsp&nbsp&nbsp<a href="ideas.html" target="_blank"> idea</a> 
+</div>
 </div>
 
 <div class="two">
@@ -130,22 +145,22 @@ overflow:auto;
 
 </div>
 <div class="three">
-<p class="p1">Why HTML and CSS?</p>
-<p><font size="2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passage.<font></p>
+<p><font class="p1">Why HTML and CSS?</font><br>
+<font size="2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s.<font></p>
 </div>
 
 <div class="four">
 
 <div class="lefttext">
 <p class="p1">Learn HTML</p>
-<p><font size="2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<font></p><br><br><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" style="a:hover color:red"><p align=right><b>readmore</b></a></p></div>
+<p><font size="2" >Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<font></p><br><br><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" style="a:hover color:red"><p align=right><b>read more</b></a></p></div>
 
 
 
 <div class="middletext">
 
 <p class="p1">Learn CSS</p>
-<p><font size="2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<font></p><br><br><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" style="a:hover color:red"><p align=right><b>readmore</b></a></p></div>
+<p><font size="2" text-align="justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<font></p><br><br><a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML" style="a:hover color:red"><p align=right><b>read more</b></a></p></div>
 
 
 <div class="righttext">
