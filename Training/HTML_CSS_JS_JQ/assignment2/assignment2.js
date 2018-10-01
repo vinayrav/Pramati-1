@@ -58,7 +58,11 @@
 
             if (bf == 0) {
                 
-
+                $("#fs").hide();
+                $("#ls").hide();
+                $("#es").hide();
+                $("#ns").hide();
+                $("#ds").hide();
                 var today = new Date();
                 var given = new Date(dob);
                 if (given > today) {
