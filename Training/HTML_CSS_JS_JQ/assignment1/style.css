@@ -1,145 +1,130 @@
-.one {
-    height: 100px;
-    margin-right: 10px;
-    margin-left: 10px;
+body{
+  margin:0px;
+  padding:0px;
 }
-
-.oneleft {
-    position: relative;
-    top: 20px;
-    left: 30px;
+.iconspace {
+  height: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
-
-.oneright {
-    position: relative;
-    top: -50px;
-    right: -1050px;
+.icon-left {
+  position: relative;
+  top: 20px;
+  left: 30px;
 }
-
-hr {
-    border: 1px dashed lightgray;
-    margin-left: -10px;
-    margin-right: -10px;
+.icon-right {
+  position: relative;
+  top: -50px;
+  right: -1050px;
 }
-
+.dashed-border {
+  border: 1px dashed lightgray;
+  margin-left: -10px;
+  margin-right: -10px;
+}
 .icontext {
-    top: 0px;
+  top: 0px;
 }
-
-.img1 {
-    width: 100%;
+.banner-image {
+  width: 100%;
 }
-
-.two {
-    padding-top: 8px;
-    padding-bottom: 8px;
-    top: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+.banner {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
-
-.paraalign {
-    float: right;
+.readmore-align {
+  float: right;
 }
-
-.three {
-    position: relative;
-    margin-right: 13px;
-    margin-left: 13px;
+.content {
+  position: relative;
+  margin-right: 13px;
+  margin-left: 13px;
 }
-
-.p1 {
-    font-size: 23px;
-    font-weight: bold;
-    color: green;
+.header-font {
+  font-size: 23px;
+  font-family:arial;
+  font-weight: bold;
+  color: green;
 }
-
-.p2 {
-    margin-top: -15px;
-    font-size: 15px;
+.content-font {
+  font-family:arial;
+  font-size: 15px;
 }
-
-.space {
-    padding-left: 10px;
-    padding-right: 19px;
+.space-home {
+  padding-left: 8px;
+  padding-right: 21px;
 }
-
+.space-about {
+  padding-left: 5px;
+  padding-right: 21px;
+}
+.space-idea {
+  padding-left: 9px;
+  padding-right: 21px;
+}
 .spacepara {
-    margin-top: -2px;
-    margin-left: -15px;
+  margin-top: -2px;
+  margin-left: -15px;
+}
+.sub-content {
+  display: table;
+  top: 20px;
+  height: 200px;
+  padding-bottom: 2px;
+  margin-right: 13px;
+  margin-bottom: 5px;
+  margin-left: 13px;
+}
+.sub-content-left {
+  float: left;
+  width: 30%;
+  top: -115px;
+  padding-left: 6px;
+  padding-right: 15px;
+  border-right: 1.7px dashed lightgray;
+  margin-top: 8px;
+}
+.sub-content-middle {
+  display: inline-block;
+  width: 30%;
+  top: -115px;
+  margin-left: 9px;
+  margin-top: 8px;
+  padding-left: 3px;
+  padding-right: 1px;
+}
+.sub-content-right {
+  float: right;
+  width: 32%;
+  text-align: justify;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 12px;
+  margin-left: 23px;
+  margin-right:-10px;
+  border: 7px solid #99994d;
+  background-color: #e5e5cc;
+}
+.footer {
+  height: 50px;
+  top: 10px;
+  margin-top: 10px;
+}
+.footer-right {
+  float: right;
+}
+.list {
+  list-style-image: url("bullet.png");
+  margin-left: 50px;
+  padding-bottom: 15px;
+}
+.anchor-link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
 }
 
-.four {
-    display: table;
-    top: 20px;
-    height: 200px;
-    padding-bottom: 2px;
-    margin-right: 13px;
-    margin-bottom: 5px;
-    margin-left: 13px;
-}
 
-.lefttext {
-    float: left;
-    width: 30%;
-    top: -115px;
-    padding-left: 6px;
-    padding-right: 15px;
-    border-right: 1.7px dashed lightgray;
-    margin-top: 8px;
-}
-
-.middletext {
-    display: inline-block;
-    width: 30%;
-    top: -115px;
-    margin-left: 9px;
-    margin-top: 8px;
-    padding-left: 3px;
-    padding-right: 1px;
-}
-
-.righttext {
-    float: right;
-    width: 32%;
-    text-align: justify;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: 12px;
-    margin-left: 23px;
-    margin-right:-18px;
-    border: 7px solid #99994d;
-    background-color: #e5e5cc;
-}
-
-.five {
-    height: 50px;
-    top: 10px;
-    margin-top: 10px;
-}
-
-.rightfive {
-    float: right;
-}
-
-li {
-    list-style-image: url("bullet.png");
-    margin-left: 80px;
-    padding-bottom: 15px;
-}
-
-a:link {
-    color: black;
-    background-color: transparent;
-    text-decoration: none;
-}
-
-a:hover {
-    color: red;
-    background-color: transparent;
-    text-decoration: none;
-}
-
-.over {
-    overflow: auto;
-}
