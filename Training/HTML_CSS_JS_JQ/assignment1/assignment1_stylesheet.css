@@ -35,7 +35,12 @@ body{
   margin-right: 10px;
   margin-left: 10px;
 }
-.readmore-align {
+.readmore-align-left {
+  padding-top:60px;
+  float: right;
+}
+.readmore-align-middle {
+  padding-top:40px;
   float: right;
 }
 .content {
@@ -44,12 +49,16 @@ body{
   margin-left: 13px;
 }
 .header-font {
+  margin:0px;
+ 
   font-size: 23px;
   font-family:arial;
   font-weight: bold;
   color: green;
 }
 .content-font {
+  margin:0px;
+  padding:0px;
   font-family:arial;
   font-size: 15px;
 }
