@@ -1,21 +1,19 @@
 function name_validation(name){
 	 if (name.length < 1 || !/^[a-zA-Z\' ']+$/.test(name))
-	 {
-		 return false;
+	 {		 return false;
 	 }else{
 		 return true;
-	 }
+		  }
  }
 function email_validation(email){
 	if (email.length < 1 || !/^([a-zA-Z]+[\d\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(email))
-	{
-		return false;
+	{		return false;
 	}else{
 		return true;
 	}
 }
 function phone_number_validation(phone_number){
-	 if (phone_number.length < 1 || !/^([6-9]+[\d]{9})?$/.test(phone_number))
+	 if (!/^([6-9]{1}[\d]{9}){1}$/.test(phone_number))
 	 {
 		 return false;
 	 }else{
@@ -25,9 +23,9 @@ function phone_number_validation(phone_number){
  
 function date_of_birth_validation(dob){
 	if(dob.length < 1){
-		return true;
-	}else{
 		return false;
+	}else{
+		return true;
 	}	
 }	
 	
@@ -87,10 +85,10 @@ $(document).ready(function() {
   });
 
 
-  $('#datepicker').focus(function() {
+  $('#datepicker').focusout(function() {
     focus_dob = 1;
     $('#dob_error').text("Invalid date of birth");   
-    if ($('#datepicker').val().length < 1) {      
+    if (!date_of_birth_validation($('#datepicker').val())) {      
       $('#dob_error').show();
     } else {      
       $('#dob_error').hide();
@@ -117,19 +115,19 @@ $(document).ready(function() {
     //alert(error_flag);
     if(focus_firstname == 0 )
      { 
-	    $('#first_name_error').text("Invalid first name");
+	    $('#first_name_error').text("first name cannot be blank");
 	    $("#first_name_error").show();
      } if (focus_lastname==0 ){
-	    $('#last_name_error').text("Invalid last name");
+	    $('#last_name_error').text(" last name cannot be blank");
 	    $("#last_name_error").show();
 	 } if (focus_phonenumber==0){
-		$("#phone_number_error").text("Invalid Mobile Number");
+		$("#phone_number_error").text(" Mobile Number cannot be blank");
 		$("#phone_number_error").show();
 	 } if (focus_email==0){
-	    $("#email_error").text("Invalid Email"); 
+	    $("#email_error").text(" Email cannot be blank"); 
 	    $("#email_error").show();
 	 } if (focus_dob==0){
-		$('#dob_error').text("Invalid date of birth"); 
+		$('#dob_error').text(" date of birth cannot be blank"); 
 		$("#dob_error").show();
 	 }     		
       //alert("No Black fileds are allowed!");
