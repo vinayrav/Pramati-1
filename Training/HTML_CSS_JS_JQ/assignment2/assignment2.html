@@ -1,0 +1,72 @@
+<html>
+  <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="assignment2.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-md-2"></div>
+      <div class="col-md-9 center_div" id="div1">
+        <div class="panel panel-primary">
+          <div class="panel-heading">SAMPLE FORM</div>
+          <form id="sample_form">
+            <div class="panel-body">
+              <div class="form-group row">
+                <label for="first-name" class="col-md-3">First Name:</label>
+                <input class="col-md-3" type="text" class="form-control" id="first_name" class="name">
+                <span class="col-md-3 label label-danger" id="first_name_error" ></span>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" for="last-name">Last Name:</label>
+                <input class="col-md-3" type="text" class="form-control" id="last_name" class="name" >
+                <span class="col-md-3 label label-danger" id="last_name_error" ></span>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" for="email">Email:</label>
+                <input class="col-md-3" type="email" class="form-control" id="email" >
+                <span class="col-md-3 label label-danger" id="email_error" ></span>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" for="phone-number">Phone Number:</label>
+                <input class="col-md-3" type="number" class="form-control" id="phone_number" >
+                <span class="col-md-3 label label-danger" id="phone_number_error" ></span>
+              </div>
+              <div class="form-group row">
+                <label class="col-md-3" for="dob">Date Of Birth:</label>
+                <div class="input-append date" data-date-format="mm-dd-yyyy">
+                  <input class="col-md-3" type="text" id="datepicker">
+                  <span class="col-md-3 label label-danger" id="dob_error" ></span>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-5"></div>
+                <button type="button" class="btn btn-info col-md-3" id="submit_button">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="text-md-center"> 
+    <table class="table table-condensed table-bordered " id="form_details_table">
+      <tr>
+		  <thead class="thead-dark">
+			  <th class="text-center">FIRST NAME</th>
+              <th class="text-center">LAST NAME</th>
+              <th class="text-center">EMAIL</th>
+              <th class="text-center">PHONE NUMBER</th>
+              <th class="text-center">DOB</th>
+           </thead>
+             
+      </tr>
+    </table>
+    </div>
+    </div>
+  </body>
+</html>
