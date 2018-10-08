@@ -22,6 +22,16 @@ body{
   margin-left: -10px;
   margin-right: -10px;
 }
+.line-space-one{
+  bottom:17px;
+  position:relative;
+  left:70px;
+}
+.line-space-two{
+  bottom:54px;
+  position:relative;
+  left:160px;
+}
 .icontext {
   top: 0px;
 }
@@ -63,20 +73,34 @@ body{
   font-size: 15px;
 }
 .space-home {
+  position:relative;
   padding-left: 8px;
   padding-right: 21px;
 }
 .space-about {
-  padding-left: 5px;
+  position:relative;
+  padding-left: 25px;
   padding-right: 21px;
+  bottom:35px;
+  left:70px;
 }
-.space-idea {
-  padding-left: 9px;
+.space-idea {  
+  position:relative;
+  padding-left: 27px;
   padding-right: 21px;
+  bottom:73px;
+  left:155px;
 }
 .spacepara {
   margin-top: -2px;
   margin-left: -15px;
+  
+}
+.spacepara-end {
+  margin-top: -2px;
+  margin-left: -15px;
+  
+  
 }
 .sub-content {
   display: table;
@@ -123,7 +147,8 @@ body{
   margin-top: 10px;
 }
 .footer-right {
-  float: right;
+ position:relative;
+ left:1090px;
 }
 .list {
   list-style-image: url("bullet.png");
@@ -135,5 +160,3 @@ body{
   background-color: transparent;
   text-decoration: none;
 }
-
-
