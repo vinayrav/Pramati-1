@@ -1,0 +1,219 @@
+
+
+body {
+  font-family: Times New Roman;
+  font-size: 12px;
+}
+
+.pannel-questions {
+  position: relative;
+  top: 50px;
+  left: 250px;
+  margin-right: 50px;
+  margin-left: 50px;
+  width: 60%;
+  text-align: center;
+}
+
+.panel-body {
+  height: 30%;
+}
+
+.questions {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 62%;
+  color: white;
+  padding: 6px;
+  top: 0px;
+  left: 150px;
+  height: 30%;
+  text-align: left;
+}
+
+.a-radio {
+  position: relative;
+  left: 100px;
+  top: 10px;
+}
+
+.b-radio {
+  position: relative;
+  left: 250px;
+  top: 10px;
+}
+
+.c-radio {
+  position: relative;
+  right: 230px;
+  top: 70px;
+}
+
+.d-radio {
+  position: relative;
+  right: 75px;
+  top: 70px;
+}
+
+.option-a {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 20%;
+  height: 25%;
+  top: 10px;
+  color: white;
+  padding: 6px;
+  left: 100px;
+  text-align: left;
+  border-radius: 25px;
+}
+
+.option-b {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 20%;
+  height: 25%;
+  color: white;
+  padding: 6px;
+  left: 250px;
+  top: 10px;
+  text-align: left;
+  border-radius: 25px;
+}
+
+.panel>.panel-heading {
+  background-image: none;
+  background-color: #1C2331;
+  color: white;
+}
+
+.option-c {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 20%;
+  height: 25%;
+  top: 70px;
+  color: white;
+  padding: 6px;
+  right: 230px;
+  text-align: left;
+  border-radius: 25px;
+}
+
+.option-d {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 20%;
+  height: 25%;
+  top: 70px;
+  color: white;
+  padding: 6px;
+  right: 75px;
+  text-align: left;
+  border-radius: 25px;
+}
+
+.pannel-functions {
+  position: relative;
+  top: 100px;
+  left: 150px;
+  margin-right: 50px;
+  margin-left: 50px;
+  width: 80%;
+  height: 60%;
+  text-align: center;
+}
+
+.quit-button {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 10%;
+  height: 10%;
+  top: 20px;
+  color: black;
+  padding-top: 17px;
+  left: 50px;
+  height: 50%;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.quit {
+  width: 50%;
+  height: 70%;
+  text-align: center;
+}
+
+.next-button {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 10%;
+  height: 10%;
+  bottom: 20px;
+  height: 50%;
+  color: black;
+  padding-top: 17px;
+  left: 250px;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.timer-box {
+  position: relative;
+  top: 50px;
+  left: 300px;
+  background-color: MidnightBlue;
+  width: 10%;
+  height: 10%;
+  padding-top: 17px;
+  text-align: center;
+  border-radius: 25px;
+  color:white;
+}
+
+.start {
+  text-align: center;
+  width: 50%;
+  height: 70%;
+}
+
+.next {
+  width: 50%;
+  height: 70%;
+  text-align: center;
+}
+
+.submit-button {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 10%;
+  height: 10%;
+  bottom: 62px;
+  height: 50%;
+  color: black;
+  padding-top: 17px;
+  left: 450px;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.submit {
+  width: 55%;
+  height: 70%;
+  text-align: center;
+}
+
+.start-button {
+  position: relative;
+  background-color: MidnightBlue;
+  width: 20%;
+  height: 15%;
+  bottom: 103px;
+  height: 50%;
+  color: black;
+  padding-top: 17px;
+  left: 700px;
+  text-align: center;
+  border-radius: 25px;
+}
+
