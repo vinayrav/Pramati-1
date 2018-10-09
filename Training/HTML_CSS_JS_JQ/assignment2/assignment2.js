@@ -1,5 +1,5 @@
 function name_validation(name) {
-  if (name.length < 1 || !/^[a-zA-Z\' ']+$/.test(name)) {
+  if (name.length < 1 || !/^[a-zA-Z]+[a-zA-Z\' ']+$/.test(name)) {
     return false;
   } else {
     return true;
@@ -7,7 +7,7 @@ function name_validation(name) {
 }
 
 function email_validation(email) {
-  if (email.length < 1 || !/^([a-zA-Z]+[\d\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(email)) {
+if (!/^[a-zA-Z]+([\w\.]+\@([\w-]+\.)[\w-]{2,4}){1}$/.test(email) ) {
     return false;
   } else {
     return true;
