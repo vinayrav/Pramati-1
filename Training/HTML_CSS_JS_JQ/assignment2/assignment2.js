@@ -1,5 +1,5 @@
 function name_validation(name) {
-  if (name.length < 1 || !/^[a-zA-Z]+[a-zA-Z\' ']+$/.test(name)) {
+ if (!/^[a-zA-Z]+[a-zA-Z\' ']+$/.test(name)) {
     return false;
   } else {
     return true;
