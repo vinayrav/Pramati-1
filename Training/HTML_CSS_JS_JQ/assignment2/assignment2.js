@@ -1,5 +1,5 @@
 function name_validation(name) {
- if (!/^[a-zA-Z]+[a-zA-Z\' ']+$/.test(name)) {
+  if (!/^[a-zA-Z\s]+$/.test(name)) {
     return false;
   } else {
     return true;
@@ -7,9 +7,12 @@ function name_validation(name) {
 }
 
 function email_validation(email) {
-if (!/^[a-zA-Z]+([\w\.]+\@([\w-]+\.)[\w-]{2,4}){1}$/.test(email) ) {
+  if (!/^[a-zA-Z]+([\w\.]+\@([\w-]+\.)[\w-]{2,4}){1}$/.test(email)) {
     return false;
+
   } else {
+
+
     return true;
   }
 }
@@ -23,6 +26,7 @@ function phone_number_validation(phone_number) {
 }
 
 function date_of_birth_validation(dob) {
+  focus_dob = 1;
   if (dob.length < 1) {
     return false;
   } else {
@@ -30,21 +34,24 @@ function date_of_birth_validation(dob) {
   }
 }
 
+
 $(document).ready(function () {
   $("#datepicker").datepicker({
-    format: 'mm-dd-yyyy',
-    endDate: '+0d',
+    format: "mm-dd-yyyy",
+    endDate: new Date(),
     autoclose: true
+
   });
+
   $('#first_name').css('textTransform', 'capitalize');
   $('#last_name').css('textTransform', 'capitalize');
   var tale_row = 0;
-  var error_flag = 0;
-  var focus_firstname = 0;
-  var focus_lastname = 0;
-  var focus_email = 0;
-  var focus_phonenumber = 0;
-  var focus_dob = 0;
+  error_flag = 0;
+  focus_firstname = 0;
+  focus_lastname = 0;
+  focus_email = 0;
+  focus_phonenumber = 0;
+  focus_dob = 0;
   $('#first_name').focusout(function () {
     focus_firstname = 1;
     $('#first_name_error').text("Invalid first name");
@@ -85,16 +92,10 @@ $(document).ready(function () {
     }
   });
 
-
-  $('#datepicker').focusout(function () {
-    focus_dob = 1;
-    $('#dob_error').text("Invalid date of birth");
-    if (!date_of_birth_validation($('#datepicker').val())) {
-      $('#dob_error').show();
-    } else {
-      $('#dob_error').hide();
-    }
+  $('#datepicker').on('focus', function () {
+    $("#dob_error").hide();
   });
+
 
   function capitalize(name) {
     var words = name.split(" ");
@@ -107,30 +108,41 @@ $(document).ready(function () {
   }
 
   $('#submit_button').click(function () {
+
+    $('#dob_error').text("Date of birth cannot be blank");
+    if (!date_of_birth_validation($('#datepicker').val())) {
+      $('#dob_error').show();
+    } else {
+      $('#dob_error').hide();
+
+    }
+
+
     if ($("#first_name_error").is(":visible") || $("#last_name_error").is(":visible") || $("#email_error").is(":visible") || $("#phone_number_error").is(":visible") || $("#dob_error").is(":visible")) {
       error_flag = 1;
     } else {
       error_flag = 0;
     }
+
     //alert(error_flag);
     if (focus_firstname == 0) {
       $('#first_name_error').text("first name cannot be blank");
       $("#first_name_error").show();
     }
     if (focus_lastname == 0) {
-      $('#last_name_error').text(" last name cannot be blank");
+      $('#last_name_error').text("last name cannot be blank");
       $("#last_name_error").show();
     }
     if (focus_phonenumber == 0) {
-      $("#phone_number_error").text(" Mobile Number cannot be blank");
+      $("#phone_number_error").text("Mobile Number cannot be blank");
       $("#phone_number_error").show();
     }
     if (focus_email == 0) {
-      $("#email_error").text(" Email cannot be blank");
+      $("#email_error").text("Email cannot be blank");
       $("#email_error").show();
     }
     if (focus_dob == 0) {
-      $('#dob_error').text(" date of birth cannot be blank");
+      $('#dob_error').text("date of birth cannot be blank");
       $("#dob_error").show();
     }
     //alert("No Black fileds are allowed!");
@@ -161,4 +173,3 @@ $(document).ready(function () {
     }
   });
 });
-
