@@ -220,5 +220,3 @@ The Unix operating system is a set of programs that act as a link between the co
      -   Different from pid and is shorter.
      -   A job can have multiple processes so jobid used instead of
             tracking individual processes.
-- awk command
-  - pattern scanning and processing language
