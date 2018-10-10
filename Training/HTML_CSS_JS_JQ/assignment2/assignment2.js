@@ -9,10 +9,7 @@ function name_validation(name) {
 function email_validation(email) {
   if (!/^[a-zA-Z]+([\w\.]+\@([\w-]+\.)[\w-]{2,4}){1}$/.test(email)) {
     return false;
-
   } else {
-
-
     return true;
   }
 }
